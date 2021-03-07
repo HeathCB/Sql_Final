@@ -13,6 +13,7 @@ public class Players {
 		this.setPlayer_name(player_name);
 		this.setPlayer_num(player_num);
 		this.setPlayer_position(player_position);
+		this.setTeamId(teamId);
 	}
 
 	public int getPlayerID() {
