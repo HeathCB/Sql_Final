@@ -12,13 +12,7 @@ import Entity.Division;
 import Entity.League;
 import Entity.Players;
 import Entity.Teams;
-/*
- * 
- * 
- * 
- * 
- * 
- */
+
 public class Menu {
 
 	private Scanner scanner = new Scanner(System.in);
@@ -120,9 +114,8 @@ public class Menu {
 			}
 		}while ( !selection.equals( "-1" ) );
 	}
-	
 
-	private void getAllPlayers() throws SQLException {
+	private void getAllPlayers() throws SQLException { //retrieves all players from the db
 		List<Players> myPlayers = playersDao.getAllPlayers();
 		for ( Players p : myPlayers ) {
 			System.out.println( "player ID: " + p.getPlayerId() + " " + "Player name: " + p.getPlayer_name() + " " + "Players number: " + p.getPlayer_num() + " " + "Players position: " + p.getPlayer_position() + " " + "Team Id: " + p.getTeamId() );
@@ -130,9 +123,7 @@ public class Menu {
 		
 	}
 
-
-
-	private void deletePlayerByTeam() throws SQLException {
+	private void deletePlayerByTeam() throws SQLException { //deletes players based off team id
 		System.out.print( "Enter the team ID");
 		String nl = scanner.nextLine();
 		Integer teamId= null;
@@ -147,9 +138,7 @@ public class Menu {
 		}
 	}
 
-
-
-	private void addPlayer() throws SQLException {
+	private void addPlayer() throws SQLException { //creates a new player
 		System.out.print( "Enter the player Id" );
 		String nl = scanner.nextLine();
 		Integer playerId = null;
@@ -182,9 +171,7 @@ public class Menu {
 		}
 	}
 
-
-
-	private void deletePlayer() throws SQLException {
+	private void deletePlayer() throws SQLException { //deletes player based off player id
 		System.out.print( "Enter the player Id to delete" );
 		String nl = scanner.nextLine();
 		Integer playerId = null;
@@ -199,9 +186,7 @@ public class Menu {
 		}
 	}
 
-
-
-	private void updatePlayer() throws SQLException {
+	private void updatePlayer() throws SQLException { //modifies player based off player id
 		System.out.print( "Enter the player Id");
 		String nl = scanner.nextLine();
 		Integer playerId = null;
@@ -234,9 +219,7 @@ public class Menu {
 		}
 	}
 
-
-
-	private void getMembersByteam() throws SQLException {
+	private void getMembersByteam() throws SQLException { //prints all members(players) of a given team based off team id
 		System.out.print( "Which team would you like to see players from?" );
 		String nt = scanner.nextLine();
 		Integer teamId = null;
@@ -248,14 +231,12 @@ public class Menu {
 		}
 		if ( teamId != null) {
 			System.out.print( "Here are the players from team: " + teamId);
-			playersDao.getMembersByTeamId(teamId);
+			System.out.println(playersDao.getMembersByTeamId(teamId)); //prints out the hash code. Ran out of time to implement toString() on list
 
 		}	
 	}
 
-
-
-	private void addTeam() {
+	private void addTeam() { //creates a new team
 		System.out.print( "Enter the Team Id" );
 		String nl = scanner.nextLine();
 		Integer teamId = null;
@@ -283,9 +264,7 @@ public class Menu {
 		}
 	}
 
-
-
-	private void deleteTeam() throws SQLException {
+	private void deleteTeam() throws SQLException { //deletes team based off team id
 		System.out.print( "Enter the team Id to delete");
 		String nl = scanner.nextLine();
 		Integer teamId = null;
@@ -299,9 +278,7 @@ public class Menu {
 		}
 	}
 
-
-
-	private void updateTeams() throws SQLException {
+	private void updateTeams() throws SQLException { //modifies team based off team id
 		System.out.print( "Enter the team Id" );
 		String nl = scanner.nextLine();
 		Integer teamId = null;
@@ -329,18 +306,14 @@ public class Menu {
 		}
 	}
 
-
-
-	private void displayTeams() throws SQLException {
+	private void displayTeams() throws SQLException { //shows all teams on the db
 		List<Teams> myTeam = teamsDao.getAllTeams();
 		for ( Teams t : myTeam ) {
 			System.out.println( "Team ID: " + t.getTeamId() + " " + "Team name: " + t.getTeam_name() + " " + "Championships: " + t.getTeam_champs() + " " + "Division ID: " + t.getDivisionId() );
 		}
 	}
 
-
-
-	private void addDivision() throws SQLException {
+	private void addDivision() throws SQLException { //creates a new division
 		System.out.print( "Enter the Division Id" );
 		String nl = scanner.nextLine();
 		Integer divisionId = null;
@@ -367,9 +340,7 @@ public class Menu {
 		}
 	}
 
-
-
-	private void deleteDivision() throws SQLException {
+	private void deleteDivision() throws SQLException { //deletes division based on division id
 		System.out.print( "Enter the Division Id to delete" );
 		String nl = scanner.nextLine();
 		Integer divisionId = null;
@@ -383,9 +354,7 @@ public class Menu {
 		}
 	}
 
-
-
-	private void updateDivision() throws SQLException {
+	private void updateDivision() throws SQLException { //modifies division based off division id
 		System.out.print( "Enter the Division Id" );
 		String nl = scanner.nextLine();
 		Integer divisionId = null;
@@ -411,18 +380,14 @@ public class Menu {
 		}
 	}
 
-
-
-	private void displayDivisions() throws SQLException {
+	private void displayDivisions() throws SQLException { //shows all divisions on the db
 		List<Division> myDivision = divisionDao.getAllDivisions();
 		for ( Division d : myDivision ) {
 			System.out.println( "Division ID: " + d.getDivisionId() + " " + "Division name: " + d.getDivision_name() + " "+ "Championships: " + d.getDivision_champs() + " " + "League Id: "+ d.getLeagueId() );
 		}
 	}
 
-
-
-	private void addLeague() {
+	private void addLeague() { //creates a new league
 		System.out.print( "Enter the new league Id" );
 		String nl = scanner.nextLine();
 		Integer leagueId = null;
@@ -441,9 +406,7 @@ public class Menu {
 		}
 	} 
 
-
-
-	private void deleteLeague() throws SQLException {
+	private void deleteLeague() throws SQLException { //deletes league based off league id
 		System.out.print( "Enter the league id to delete" );
 		String nl = scanner.nextLine();
 		Integer leagueId = null;
@@ -457,9 +420,7 @@ public class Menu {
 		}
 	}
 
-
-
-	private void displayLeagues() throws SQLException {
+	private void displayLeagues() throws SQLException { //shows all leagues on the db
 		List<League> myLeagues = leagueDao.getAllLeagues();
 		for ( League l : myLeagues ) {
 			System.out.println("League id: " + l.getLeagueId() + " " + "League name: " + l.getLeague_name() );
@@ -467,8 +428,7 @@ public class Menu {
 		
 	}
 
-
-	private void updateLeague() throws SQLException {
+	private void updateLeague() throws SQLException { //modifies league, based off league id
 		System.out.print( "Enter the league ID" );
 		String nl = scanner.nextLine();
 		Integer leagueId = null;
@@ -487,11 +447,8 @@ public class Menu {
 		}
 		}
 	}
-		
-	
 
-
-	public void end() {
+	public void end() { //ends program
 		DBConnection.closeConnection();
 		System.out.println( "Leaving the database" );
 	}
