@@ -19,11 +19,11 @@ public class DivisionDao {
 	private Connection connection;
 	
 	
-	public DivisionDao() {
-		connection = DBConnection.getInstance().getConnection();
+	public DivisionDao() { //constructor
+		connection = DBConnection.getInstance().getConnection(); //instance of connection
 	}
 	
-	public List <Division> getAllDivisions() throws SQLException{
+	public List <Division> getAllDivisions() throws SQLException{ //retrieves all divisions from db
 		List<Division> out = new ArrayList<>();
 		
 		Statement s = connection.createStatement();
@@ -35,7 +35,7 @@ public class DivisionDao {
 		return out;
 	}
 	
-	public void addDivision( int divisionId, String division_name, int division_champ, int leagueId ) throws SQLException {
+	public void addDivision( int divisionId, String division_name, int division_champ, int leagueId ) throws SQLException { //creates a division
 		try ( PreparedStatement ps = connection.prepareStatement(addDivision) ){
 			ps.setInt(1, divisionId);
 			ps.setString(2, division_name);
@@ -48,7 +48,7 @@ public class DivisionDao {
 		}
 	}
 	
-	public void deleteDivision(int divisionId) throws SQLException {
+	public void deleteDivision(int divisionId) throws SQLException { //deletes a division based off division id
 		 PreparedStatement ps = connection.prepareStatement(deleteDivision); 
 			ps.setInt(1, divisionId);
 			ps.executeUpdate();
@@ -56,7 +56,7 @@ public class DivisionDao {
 		
 	}
 	
-	public void updateDivision( int divisionId, String division_name, int division_champ, int leagueId ) throws SQLException {
+	public void updateDivision( int divisionId, String division_name, int division_champ, int leagueId ) throws SQLException { //updates a division based off division id
 		PreparedStatement ps = connection.prepareStatement(updateDivision);
 			ps.setInt(1, divisionId);
 			ps.setString(2, division_name);
