@@ -492,6 +492,7 @@ public class Menu {
 
 
 	public void end() {
+		DBConnection.closeConnection();
 		System.out.println( "Leaving the database" );
 	}
 }
